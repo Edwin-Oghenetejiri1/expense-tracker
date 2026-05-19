@@ -74,7 +74,7 @@ const categoryEmojis = {
 const TransactionList = ({ transactions, onDelete }) => {
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/transactions/${id}`);
       onDelete();
     } catch (error) {
       console.error('Error deleting transaction:', error);

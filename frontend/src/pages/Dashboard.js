@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   const fetchTransactions = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/transactions');
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/transactions`);
       setTransactions(res.data.transactions);
       setSummary(res.data.summary);
     } catch (error) {

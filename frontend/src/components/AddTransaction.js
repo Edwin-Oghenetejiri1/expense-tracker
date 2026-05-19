@@ -81,7 +81,7 @@ const AddTransaction = ({ onAdd }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/transactions', form);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/transactions`, form);
       onAdd();
       setForm({
         description: '',
