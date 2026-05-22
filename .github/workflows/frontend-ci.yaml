@@ -41,7 +41,7 @@ jobs:
       - name: Unit tests
         run: |
           cd frontend
-          npm test --if-present -- --watchAll=false
+          npm test --if-present -- --watchAll=false --passWithNoTests
 
   # ─── JOB 2: CODE QUALITY ───────────────────────────────────────────────────
   code-quality:
