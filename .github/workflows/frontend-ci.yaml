@@ -17,6 +17,7 @@ env:
   APP_NAME: expense-tracker-frontend
   DOCKERHUB_ID: ${{ secrets.DOCKER_USERNAME }}
   IMAGE_TAG: ${{ github.run_id }}
+  REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
 jobs:
   # ─── JOB 1: BUILD & TEST ───────────────────────────────────────────────────
@@ -94,6 +95,8 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/${{ env.APP_NAME }}:${{ env.IMAGE_TAG }}
             ${{ secrets.DOCKER_USERNAME }}/${{ env.APP_NAME }}:latest
+          build-args: |
+            REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}
 
   # ─── JOB 4: UPDATE KUBERNETES MANIFEST ────────────────────────────────────
   update-k8s:
